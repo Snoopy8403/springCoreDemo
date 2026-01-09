@@ -1,7 +1,7 @@
 package com.luv2code.springCoreDemo.config;
 
-import com.luv2code.springCoreDemo.Coach;
-import com.luv2code.springCoreDemo.SwimCoach;
+import com.luv2code.springCoreDemo.interfaces.Coach;
+import com.luv2code.springCoreDemo.services.SwimCoach;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

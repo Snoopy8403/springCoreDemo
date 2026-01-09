@@ -1,9 +1,10 @@
-package com.luv2code.springCoreDemo;
+package com.luv2code.springCoreDemo.services;
 
+import com.luv2code.springCoreDemo.interfaces.Coach;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CricketCoach implements Coach{
+public class CricketCoach implements Coach {
 
     @Override
     public String getDailyWorkout() {

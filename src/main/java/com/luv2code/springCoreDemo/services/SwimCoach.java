@@ -1,7 +1,9 @@
-package com.luv2code.springCoreDemo;
+package com.luv2code.springCoreDemo.services;
 
 
-public class SwimCoach implements Coach{
+import com.luv2code.springCoreDemo.interfaces.Coach;
+
+public class SwimCoach implements Coach {
 
     public SwimCoach(){
         System.out.println("In constructor: " + getClass().getSimpleName());

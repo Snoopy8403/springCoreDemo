@@ -1,13 +1,12 @@
-package com.luv2code.springCoreDemo;
+package com.luv2code.springCoreDemo.services;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
+import com.luv2code.springCoreDemo.interfaces.Coach;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TennisCoach implements Coach{
+public class TennisCoach implements Coach {
 
 
     public TennisCoach(){

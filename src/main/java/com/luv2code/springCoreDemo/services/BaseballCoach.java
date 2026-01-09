@@ -1,9 +1,10 @@
-package com.luv2code.springCoreDemo;
+package com.luv2code.springCoreDemo.services;
 
+import com.luv2code.springCoreDemo.interfaces.Coach;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BaseballCoach implements Coach{
+public class BaseballCoach implements Coach {
 
     public BaseballCoach(){
         System.out.println("");
