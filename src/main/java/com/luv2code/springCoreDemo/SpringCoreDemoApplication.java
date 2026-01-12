@@ -18,8 +18,42 @@ public class SpringCoreDemoApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner -> {
-			createStudent(studentDAO);
+			//createStudent(studentDAO);
+			//createMultipleStudent(studentDAO);
+			readStudent(studentDAO);
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		//create a student object
+		System.out.println("Create a stundet");
+		Student newStudent = new Student("Takács", "Feri", "takacs.feri@gmail.com");
+
+		//save the student
+		System.out.println("Save the new student");
+		studentDAO.save(newStudent);
+
+		//display id of the saved student
+		System.out.println("Created user id: " + newStudent.getId());
+
+		//retrieve student based on the is: primary key
+		System.out.println("Created user data: Name-> " + studentDAO.findById(newStudent.getId()).getFirstName() + " " + studentDAO.findById(newStudent.getId()).getLastName() + " Email: " + studentDAO.findById(newStudent.getId()).getEmail() );
+	}
+
+	private void createMultipleStudent(StudentDAO studentDAO) {
+		//create multiple student object
+		System.out.println("Create multiple student object");
+		Student tempStudent1 = new Student("Jack", "Monroe", "jack.monroe@gmail.com");
+		Student tempStudent2 = new Student("Jackie", "Black", "jackie.black@gmail.com");
+		Student tempStudent3 = new Student("Horzie", "Sanders", "horzie.sanders@gmail.com");
+
+		//save multiple student object
+		System.out.println("Save multiple student");
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent3);
+
+		//display id of the saved student
 	}
 
 	private void createStudent(StudentDAO studentDAO) {

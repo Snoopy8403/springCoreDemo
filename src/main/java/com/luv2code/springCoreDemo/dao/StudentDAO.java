@@ -4,4 +4,5 @@ import com.luv2code.springCoreDemo.entity.Student;
 
 public interface StudentDAO {
     void save(Student student);
+    Student findById(Integer id);
 }
