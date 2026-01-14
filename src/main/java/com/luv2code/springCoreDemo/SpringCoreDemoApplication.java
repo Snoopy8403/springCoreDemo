@@ -21,11 +21,49 @@ public class SpringCoreDemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO){
 		return runner -> {
 			//createStudent(studentDAO);
-			//createMultipleStudent(studentDAO);
+			createMultipleStudent(studentDAO);
 			//readStudent(studentDAO);
 			//queryForStudent(studentDAO);
-			queryForStudentsByLastName(studentDAO);
+			//queryForStudentsByLastName(studentDAO);
+			//updateStudent(studentDAO);
+			//deleteStudent(studentDAO);
+			//deleteAllStudent(studentDAO);
 		};
+	}
+
+	private void deleteAllStudent(StudentDAO studentDAO) {
+		queryForStudent(studentDAO);
+		System.out.println("Deleting all student");
+
+		int numRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Deleted rows: " + numRowsDeleted);
+		queryForStudent(studentDAO);
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		//get student based on the id: primary key
+		int studentId= 1;
+		System.out.println("Getting student with id: " + studentId);
+
+		//delete the student where id=1
+		studentDAO.delete(studentId);
+
+		//display the updated data
+		queryForStudent(studentDAO);
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		//get student based on the id: primary key
+		int studentId= 1;
+		System.out.println("Getting student with id: " + studentId);
+		Student myStudent = studentDAO.findById(studentId);
+
+		//change first name to Scooby
+		myStudent.setFirstName("Scooby");
+		studentDAO.update(myStudent);
+
+		//display the updated data
+		System.out.println("Updated student: " + myStudent);
 	}
 
 	private void queryForStudentsByLastName(StudentDAO studentDAO) {
